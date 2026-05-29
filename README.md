@@ -314,8 +314,9 @@ tail -n 10 $AGENT_LOG_DIR/monitor.log
 * * * * * /home/agent-admin/agent-app/bin/monitor.sh
 ```
 
- **수행 증거 (Cron 누적 로그):**
-  ![크론 결과](https://github.com/user-attachments/assets/1d5640f7-82d5-4d0e-a75b-5f6de1849543)
+- **수행 증거 (Cron 누적 로그):**
+  ![크론 결과](https://github.com/user-attachments/assets/82d9b5d5-a37c-48a7-b014-074b6cf2e20e)
+
 
 ### 7-2. Logrotate 로그 관리 적용
 

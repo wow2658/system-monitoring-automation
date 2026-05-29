@@ -304,9 +304,18 @@ su - agent-admin
 # (참고: 처음 crontab -e를 치면 에디터를 고르라고 나옵니다. 1번(nano)을 선택하세요.)
 crontab -e
 
+# 내 크론탭 스케줄 리스트 확인하기 (이제 아까 등록한 별 5개가 잘 보일 겁니다!)
+crontab -l
+
+# 1분마다 쌓이는 로그 10줄 확인하기 (아래 명령어를 그대로 복사해서 붙여넣으세요!)
+tail -n 10 $AGENT_LOG_DIR/monitor.log
+
 # 3. 편집기 최하단에 스케줄링 규칙 삽입 (매 분 실행) 후 컨O 엔터 컨X
 * * * * * /home/agent-admin/agent-app/bin/monitor.sh
 ```
+
+ **수행 증거 (Cron 누적 로그):**
+  ![크론 결과](https://github.com/user-attachments/assets/1d5640f7-82d5-4d0e-a75b-5f6de1849543)
 
 ### 7-2. Logrotate 로그 관리 적용
 
@@ -335,5 +344,5 @@ logrotate -f /etc/logrotate.d/agent-app
 ls -l /var/log/agent-app
 ```
 
-- **수행 증거 (Cron 누적 로그 및 Logrotate .gz 압축 파일 확인):**
-  ![크론 및 로그로테이트 결과](https://github.com/user-attachments/assets/904e50d9-1cb2-46f8-8661-f84870c341cd)
+- **수행 증거 (Logrotate .gz 압축 파일 확인):**
+  ![로그로테이트 결과](https://github.com/user-attachments/assets/904e50d9-1cb2-46f8-8661-f84870c341cd)
